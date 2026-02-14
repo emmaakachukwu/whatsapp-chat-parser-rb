@@ -17,32 +17,21 @@ module WhatsappChatParser
           def regex
             Regexp.new(
               "#{date_pattern}, #{time_pattern}"\
-              " - #{author_pattern}#{body_pattern}",
+              " - #{PatternHelpers.source(PATTERNS, :author)}#{PatternHelpers.source(PATTERNS, :body)}",
               Regexp::MULTILINE
             )
           end
-  
+
+          private
+
           def date_pattern
             PATTERNS.fetch_values(:month, :day, :year)
               .map(&:source)
               .join('/')
           end
-  
+
           def time_pattern
-            sourced_time_patterns = PATTERNS.slice(:hour, :minute, :meridiem)
-              .transform_values!(&:source)
-  
-            "#{sourced_time_patterns[:hour]}"\
-              ":#{sourced_time_patterns[:minute]}"\
-              "#{sourced_time_patterns[:meridiem]}"
-          end
-
-          def author_pattern
-            PATTERNS[:author].source
-          end
-
-          def body_pattern
-            PATTERNS[:body].source
+            PatternHelpers.format_sources(PATTERNS, %i[hour minute meridiem], '%s:%s%s')
           end
         end
       end

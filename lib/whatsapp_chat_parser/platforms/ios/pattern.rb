@@ -22,8 +22,7 @@ module WhatsappChatParser
               "#{time_pattern}"\
               "#{square_bracket_close_pattern}"\
               "#{space_pattern}#{/[-~]?/.source}#{space_pattern}"\
-              "#{author_pattern}"\
-              "#{body_pattern}",
+              "#{PatternHelpers.source(PATTERNS, :author)}#{PatternHelpers.source(PATTERNS, :body)}",
               Regexp::MULTILINE
             )
           end
@@ -31,39 +30,25 @@ module WhatsappChatParser
           private
 
           def date_pattern
-            PATTERNS.fetch_values(:day, :month, :year)
-              .map(&:source)
-              .join('/')
+            PatternHelpers.join_sources(PATTERNS, %i[day month year], '/')
           end
-  
+
           def time_pattern
-            sourced_time_patterns = PATTERNS.slice(:hour, :minute, :second, :meridiem)
-              .transform_values!(&:source)
-  
-            "#{sourced_time_patterns[:hour]}"\
-              ":#{sourced_time_patterns[:minute]}"\
-              "#{sourced_time_patterns[:second]}"\
-              "#{sourced_time_patterns[:meridiem]}"
+            PatternHelpers.format_sources(
+              PATTERNS, %i[hour minute second meridiem], '%s:%s%s%s'
+            )
           end
 
           def space_pattern
             /\p{Space}*/.source
           end
-  
+
           def square_bracket_open_pattern
             /\[?/.source
           end
-  
+
           def square_bracket_close_pattern
             /\]?/.source
-          end
-
-          def author_pattern
-            PATTERNS[:author].source
-          end
-
-          def body_pattern
-            PATTERNS[:body].source
           end
         end
       end

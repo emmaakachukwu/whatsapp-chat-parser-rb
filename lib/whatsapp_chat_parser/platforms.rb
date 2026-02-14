@@ -3,6 +3,7 @@ require_relative 'platforms/android'
 require_relative 'platforms/ios'
 require_relative 'platforms/android/pattern'
 require_relative 'platforms/ios/pattern'
+require_relative 'platforms/pattern_helpers'
 
 module WhatsappChatParser
   module Platforms
