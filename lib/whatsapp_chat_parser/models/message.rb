@@ -1,13 +1,20 @@
 module WhatsappChatParser
   module Models
     class Message
-      attr_accessor :timestamp, :author, :message, :type
+      attr_accessor :timestamp, :author, :body, :type, :platform
 
-      def initialize(timestamp, author, message, type)
+      def initialize(timestamp:, author:, body:, platform:)
         @timestamp = timestamp
         @author = author
-        @message = message
-        @type = type
+        @body = body
+        @platform = platform
+        @type = message_type
+      end
+
+      private
+
+      def message_type
+        @author.nil? ? :system : :user
       end
     end
   end
