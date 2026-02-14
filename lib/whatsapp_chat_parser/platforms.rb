@@ -2,6 +2,7 @@ require_relative 'encoding'
 require_relative 'platforms/android'
 require_relative 'platforms/ios'
 require_relative 'platforms/android/pattern'
+require_relative 'platforms/ios/pattern'
 
 module WhatsappChatParser
   module Platforms
