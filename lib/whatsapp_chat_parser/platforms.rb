@@ -25,7 +25,7 @@ module WhatsappChatParser
       end
 
       def sanitize(line)
-        Encoding.normalize_to_utf8(line.strip).scrub(" ").squeeze(" ")
+        Encoding.normalize_to_utf8(line).strip.scrub(' ').squeeze(' ')
       end
     end
   end
