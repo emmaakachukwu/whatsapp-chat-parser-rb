@@ -4,7 +4,7 @@ A Ruby library that parses exported WhatsApp chat `.txt` files and converts them
 
 ## Features
 
-- **Platform support**: Handles both iOS and Android WhatsApp chat exports
+- **Platform support**: Handles both Android and iOS WhatsApp chat exports
 - **Structured output**: Normalized message records suitable for JSON, databases, or further transformation
 - **Robust parsing**: Detects platform-specific formats, normalizes timestamps, and groups multi-line messages
 - **Deterministic**: No dependencies, explicit platform handling, predictable output structure
@@ -32,26 +32,30 @@ gem install whatsapp_chat_parser
 
 ## Usage
 
-Provide the contents (or path) of a WhatsApp chat export and parse it into structured records:
+**Parse a single message string** (returns a `Message` or `nil` if malformed):
 
 ```ruby
 require 'whatsapp_chat_parser'
 
-# From a string (e.g. file contents)
-content = File.read('path/to/chat.txt')
-messages = WhatsAppChatParser.parse(content)
+line = '12/15/25, 10:30:00 AM - John Doe: Hello World'
+msg = WhatsappChatParser.parse_line(line)
+puts "#{msg.timestamp} | #{msg.author}: #{msg.body}" if msg
+```
 
-# Each message is a normalized record with:
-# - timestamp  (normalized format)
-# - author    (name or identifier when present)
-# - message   (full content, including multi-line)
-# - type      (user message, system message, etc.)
-messages.each do |msg|
-  puts "#{msg.timestamp} | #{msg.author}: #{msg.message}"
+**Parse a file by path or io** (returns an array of `Message`; malformed lines are skipped):
+
+```ruby
+messages = WhatsappChatParser.parse_file('path/to/chat.txt')
+messages.each { |msg| puts "#{msg.timestamp} | #{msg.author}: #{msg.body}" }
+```
+
+```ruby
+File.open('path/to/chat.txt') do |f|
+  hatsappChatParser.parse_file(f).each { |msg| puts "#{msg.timestamp} | #{msg.author}: #{msg.body}" }
 end
 ```
 
-The output is suitable for serialization (JSON), database insertion, or pipelines.
+Each message has `timestamp`, `author`, `body`, `platform` and `type`. The result is suitable for JSON, databases, or pipelines.
 
 ## Output format
 
@@ -61,14 +65,15 @@ Each parsed record includes:
 |-------------|----------------------------------------------------|
 | `timestamp` | Normalized date/time (consistent across platforms) |
 | `author`    | Sender name or identifier (when present)           |
-| `message`   | Full message content (multi-line messages grouped) |
+| `body`      | Full message content (multi-line messages grouped) |
+| `platform`  | Platform where chat was exported from (Anroid/iOS) |
 | `type`      | e.g. user message, system message                  |
 
 ## Design principles
 
 - **Deterministic parsing** — Same input yields same output
 - **No dependencies** — Self-contained Ruby
-- **Explicit platform handling** — iOS vs Android format differences are handled explicitly
+- **Explicit platform handling** — Android vs iOS format differences are handled explicitly
 - **Predictable structure** — Stable, documented output schema
 
 ## Use cases
