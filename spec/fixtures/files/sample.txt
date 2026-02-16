@@ -1,0 +1,11 @@
+12/15/25, 10:30 AM - John Doe: Hello, this is an Android message.
+12/15/25, 10:31 AM - Jane Smith: Hi John! This is another Android message.
+It has multiple lines
+to test grouping.
+[15/12/2025, 10:32:00 AM] Alice: This is an iOS message with brackets.
+[15/12/2025, 10:33:00 AM] Bob: And another iOS message.
+With multi-line
+content as well.
+15/12/2025, 10:34:00 AM Charlie: iOS message without brackets.
+12/15/25, 10:35 AM - Note System message on Android.
+[15/12/2025, 10:36:00 AM] Note System message on iOS.
