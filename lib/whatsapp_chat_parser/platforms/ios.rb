@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module WhatsappChatParser
   module Platforms
     module Ios
@@ -23,11 +25,11 @@ module WhatsappChatParser
           index = Pattern::PATTERNS.keys.index(key)
           match[index + 1]
         end
-  
+
         def extract_timestamp(match)
           date_components = extract_date_components(match)
           time_components = extract_time_components(match)
-  
+
           format_sql_timestamp(date_components, time_components)
         end
 
@@ -49,9 +51,9 @@ module WhatsappChatParser
         end
 
         def convert_to_24_hour(hour, meridiem)
-          if meridiem == "PM" && hour < 12
+          if meridiem == 'PM' && hour < 12
             hour + 12
-          elsif meridiem == "AM" && hour == 12
+          elsif meridiem == 'AM' && hour == 12
             0
           else
             hour
@@ -59,14 +61,16 @@ module WhatsappChatParser
         end
 
         def format_sql_timestamp(date, time)
-          sprintf(
-            "%04d-%02d-%02d %02d:%02d:00",
-            date[:year],
-            date[:month],
-            date[:day],
-            time[:hour],
-            time[:minute]
+          # rubocop:disable Layout/HashAlignment
+          format(
+            '%<year>04d-%<month>02d-%<day>02d %<hour>02d:%<minute>02d:00',
+            year:   date[:year],
+            month:  date[:month],
+            day:    date[:day],
+            hour:   time[:hour],
+            minute: time[:minute]
           )
+          # rubocop:enable Layout/HashAlignment
         end
       end
     end

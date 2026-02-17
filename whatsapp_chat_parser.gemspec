@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'lib/whatsapp_chat_parser/version'
 
 Gem::Specification.new do |spec|
@@ -9,10 +11,13 @@ Gem::Specification.new do |spec|
 
   spec.authors = ['Emmanuel Akachukwu']
   spec.email = ['emmanuelakachukwu1@gmail.com']
-  
+
   spec.required_ruby_version = '>= 3.0'
   spec.files = Dir.glob('lib/**/*.rb') + %w[LICENSE README.md]
   spec.require_paths = ['lib']
 
   spec.add_development_dependency 'rspec'
+  spec.add_development_dependency 'rubocop'
+  spec.add_development_dependency 'rubocop-performance'
+  spec.add_development_dependency 'rubocop-rspec'
 end

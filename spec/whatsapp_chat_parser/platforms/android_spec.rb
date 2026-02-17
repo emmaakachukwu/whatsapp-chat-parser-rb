@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe WhatsappChatParser::Platforms::Android do
   describe '.parse' do
     it 'parses a standard Android line' do

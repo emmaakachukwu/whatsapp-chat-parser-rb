@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'whatsapp_chat_parser'
 
 RSpec.configure do |config|

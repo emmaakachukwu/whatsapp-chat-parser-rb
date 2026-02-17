@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe WhatsappChatParser do
   describe '.parse_line' do
     context 'with Android format' do

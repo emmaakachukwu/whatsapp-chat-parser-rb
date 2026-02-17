@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'whatsapp_chat_parser/platforms'
 require_relative 'whatsapp_chat_parser/models/message'
 require_relative 'whatsapp_chat_parser/file_processor'

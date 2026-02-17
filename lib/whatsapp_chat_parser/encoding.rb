@@ -1,18 +1,22 @@
+# frozen_string_literal: true
+
 module WhatsappChatParser
   module Encoding
     UTF8_BOM    = "\xEF\xBB\xBF".b.freeze
     UTF16LE_BOM = "\xFF\xFE".b.freeze
     UTF16BE_BOM = "\xFE\xFF".b.freeze
-    FALLBACK_ENCODING = 'UTF-8'.freeze
+    FALLBACK_ENCODING = 'UTF-8'
 
     class << self
       def normalize_to_utf8(line)
         enc = encoding_for(line)
         str = line.to_s.dup.force_encoding(enc)
         str = strip_bom(str, enc)
-        str = str.encode(
-          ::Encoding::UTF_8, invalid: :replace, undef: :replace
-        ) unless enc == ::Encoding::UTF_8
+        unless enc == ::Encoding::UTF_8
+          str = str.encode(
+            ::Encoding::UTF_8, invalid: :replace, undef: :replace
+          )
+        end
 
         str
       end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe WhatsappChatParser::FileProcessor do
   describe '.parse' do
     let(:android_content) do

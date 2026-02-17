@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
 module WhatsappChatParser
   module Platforms
     module Ios
       module Pattern
+        # rubocop:disable Layout/HashAlignment
         PATTERNS = {
           day:      /(\d{1,2})/,
           month:    /(\d{1,2})/,
@@ -13,15 +16,16 @@ module WhatsappChatParser
           author:   /(?:([^:]+?)\p{Space}*:\p{Space}*)?/,
           body:     /(.*)/
         }.freeze
+        # rubocop:enable Layout/HashAlignment
 
         class << self
           def regex
             Regexp.new(
-              "#{square_bracket_open_pattern}"\
-              "#{date_pattern},#{space_pattern}"\
-              "#{time_pattern}"\
-              "#{square_bracket_close_pattern}"\
-              "#{space_pattern}#{/[-~]?/.source}#{space_pattern}"\
+              "#{square_bracket_open_pattern}" \
+              "#{date_pattern},#{space_pattern}" \
+              "#{time_pattern}" \
+              "#{square_bracket_close_pattern}" \
+              "#{space_pattern}#{/[-~]?/.source}#{space_pattern}" \
               "#{PatternHelpers.source(PATTERNS, :author)}#{PatternHelpers.source(PATTERNS, :body)}",
               Regexp::MULTILINE
             )

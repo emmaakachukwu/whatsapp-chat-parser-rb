@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'encoding'
 require_relative 'platforms/android'
 require_relative 'platforms/ios'

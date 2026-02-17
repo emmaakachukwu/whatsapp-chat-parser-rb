@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.describe WhatsappChatParser::Models::Message do
   describe '#initialize' do
     it 'sets the correct attributes' do
