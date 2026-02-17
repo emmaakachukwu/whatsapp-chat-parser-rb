@@ -18,8 +18,9 @@ RSpec/MultipleExpectations:
 RSpec/ExampleLength:
   Max: 15
 
-Gemspec/RequireMFA:
-  Enabled: false
-
 Gemspec/DevelopmentDependencies:
   Enabled: false
+
+Layout/HashAlignment:
+  Exclude:
+    - whatsapp_chat_parser.gemspec
