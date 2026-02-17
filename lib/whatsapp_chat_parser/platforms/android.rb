@@ -12,7 +12,7 @@ module WhatsappChatParser
           author = extract(match, :author)
           body = extract(match, :body)
 
-          Models::Message.new(timestamp:, author:, body:, platform: :android)
+          Models::Message.new(timestamp: timestamp, author: author, body: body, platform: :android)
         end
 
         def matches?(line)

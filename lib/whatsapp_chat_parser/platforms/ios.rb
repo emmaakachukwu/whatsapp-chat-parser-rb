@@ -12,7 +12,7 @@ module WhatsappChatParser
           author = extract(match, :author)
           body = extract(match, :body)
 
-          Models::Message.new(timestamp:, author:, body:, platform: :ios)
+          Models::Message.new(timestamp: timestamp, author: author, body: body, platform: :ios)
         end
 
         def matches?(line)
@@ -38,7 +38,7 @@ module WhatsappChatParser
           day = extract(match, :day)
           year = extract(match, :year)
 
-          { month:, day:, year: }
+          { month: month, day: day, year: year }
         end
 
         def extract_time_components(match)
@@ -47,7 +47,7 @@ module WhatsappChatParser
           meridiem = extract(match, :meridiem)
           hour = convert_to_24_hour(hour, meridiem)
 
-          { hour:, minute: }
+          { hour: hour, minute: minute }
         end
 
         def convert_to_24_hour(hour, meridiem)

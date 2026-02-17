@@ -5,19 +5,19 @@ require 'stringio'
 module WhatsappChatParser
   module FileProcessor
     class << self
-      def parse(source, &)
+      def parse(source, &block)
         return enum_for(__method__, source) unless block_given?
 
         file = source.is_a?(StringIO) ? source : File.open(source)
-        parse_io(file, &)
+        parse_io(file, &block)
       end
 
       private
 
-      def parse_io(io, &)
+      def parse_io(io, &block)
         return enum_for(__method__, io) unless block_given?
 
-        accumulate_messages(io, &)
+        accumulate_messages(io, &block)
       end
 
       def accumulate_messages(io, &block)
