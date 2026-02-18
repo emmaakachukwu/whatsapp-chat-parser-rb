@@ -57,6 +57,8 @@ end
 
 Each message has `timestamp`, `author`, `body`, `platform` and `type`. The result is suitable for JSON, databases, or pipelines.
 
+For a more comprehensive example, see [samples/example.rb](samples/example.rb).
+
 ## Output format
 
 Each parsed record includes:
