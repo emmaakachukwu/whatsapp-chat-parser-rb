@@ -42,7 +42,7 @@ msg = WhatsappChatParser.parse_line(line)
 puts "#{msg.timestamp} | #{msg.author}: #{msg.body}" if msg
 ```
 
-**Parse a file by path or io** (returns an array of `Message`; malformed lines are skipped):
+**Parse a file by path or io** (returns an enumerable of `Message`; malformed lines are skipped):
 
 ```ruby
 messages = WhatsappChatParser.parse_file('path/to/chat.txt')
@@ -105,10 +105,42 @@ To use this library you need a plain-text export of a WhatsApp conversation. Use
 
 Use the exported `.txt` file as-is; do not edit the format. This library supports both Android and iOS export formats.
 
-## License
+## Development
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+### Setup
+
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/emmaakachukwu/whatsapp-chat-parser-rb
+cd whatsapp-chat-parser-rb
+bundle install
+```
+
+### Running Tests
+
+We use RSpec for testing. Ensure all tests pass before submitting changes:
+
+```bash
+bundle exec rspec
+```
+
+### Linting
+
+We use RuboCop to maintain code quality:
+
+```bash
+bundle exec rubocop
+```
 
 ## Contributing
 
 Contributions are welcome. Please open an issue or pull request on the project repository.
+
+1. **Fork** the repository and create a feature branch.
+2. Ensure your code follows the **Development** steps above (tests and linting pass).
+3. **Submit a Pull Request** with a detailed description of your work.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
