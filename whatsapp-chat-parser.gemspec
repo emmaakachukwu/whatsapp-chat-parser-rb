@@ -32,9 +32,9 @@ Gem::Specification.new do |spec|
     'rubygems_mfa_required' => 'true'
   }
 
-  spec.add_development_dependency 'rspec'
-  spec.add_development_dependency 'rubocop'
-  spec.add_development_dependency 'rubocop-performance'
-  spec.add_development_dependency 'rubocop-rspec'
-  spec.add_development_dependency 'simplecov'
+  spec.add_development_dependency 'rspec', '~> 3.13'
+  spec.add_development_dependency 'rubocop', '~> 1.84'
+  spec.add_development_dependency 'rubocop-performance', '~> 1.26'
+  spec.add_development_dependency 'rubocop-rspec', '~> 3.9'
+  spec.add_development_dependency 'simplecov', '~> 0.22'
 end

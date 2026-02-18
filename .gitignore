@@ -1,5 +1,7 @@
-/spec/examples.txt
 /Gemfile.lock
+/*.gem
+
+/spec/examples.txt
 
 /.yardoc
 /coverage/
