@@ -8,10 +8,14 @@ require_relative 'platforms/ios/pattern'
 require_relative 'platforms/pattern_helpers'
 
 module WhatsappChatParser
+  # Registry and dispatcher for platform-specific chat parsers.
   module Platforms
     PLATFORMS = [Android, Ios].freeze
 
     class << self
+      # Attempts to parse a message line by identifying its platform.
+      # @param line [String] The raw message line.
+      # @return [WhatsappChatParser::Models::Message, nil] The parsed message or nil.
       def parse(line)
         sanitized = sanitize(line)
         platform = platform_for(sanitized)

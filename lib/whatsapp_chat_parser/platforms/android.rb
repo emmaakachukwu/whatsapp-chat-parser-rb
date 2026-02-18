@@ -2,8 +2,12 @@
 
 module WhatsappChatParser
   module Platforms
+    # Parser for Android WhatsApp chat exports.
     module Android
       class << self
+        # Parses a line from an Android export.
+        # @param line [String] The exported line.
+        # @return [Models::Message, nil]
         def parse(line)
           match = line.match(Pattern.regex)
           return unless match
@@ -15,6 +19,9 @@ module WhatsappChatParser
           Models::Message.new(timestamp: timestamp, author: author, body: body, platform: :android)
         end
 
+        # Checks if a line matches the Android format.
+        # @param line [String]
+        # @return [Boolean]
         def matches?(line)
           Pattern.regex.match?(line)
         end

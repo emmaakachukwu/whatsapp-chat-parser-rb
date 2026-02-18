@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 module WhatsappChatParser
+  # Handles encoding detection and normalization for chat exports.
   module Encoding
     UTF8_BOM    = "\xEF\xBB\xBF".b.freeze
     UTF16LE_BOM = "\xFF\xFE".b.freeze
@@ -8,6 +9,9 @@ module WhatsappChatParser
     FALLBACK_ENCODING = 'UTF-8'
 
     class << self
+      # Normalizes a string to UTF-8, handling BOM and common encodings.
+      # @param line [String] The raw input string.
+      # @return [String] The normalized UTF-8 string.
       def normalize_to_utf8(line)
         enc = encoding_for(line)
         str = line.dup.force_encoding(enc)

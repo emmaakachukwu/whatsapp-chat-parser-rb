@@ -3,8 +3,14 @@
 require 'stringio'
 
 module WhatsappChatParser
+  # Handles reading and processing chat export files.
   module FileProcessor
     class << self
+      # Iterates through the source and yields parsed messages.
+      # @param source [String, IO] The file path or IO object.
+      # @yield [message] Yields each parsed message.
+      # @yieldparam message [WhatsappChatParser::Models::Message]
+      # @return [Enumerator] if no block is given.
       def parse(source, &block)
         return enum_for(__method__, source) unless block_given?
 
@@ -14,6 +20,9 @@ module WhatsappChatParser
 
       private
 
+      # Processes an IO object.
+      # @param io [IO] The input source.
+      # @yield [message]
       def parse_io(io, &block)
         return enum_for(__method__, io) unless block_given?
 

@@ -3,6 +3,7 @@
 module WhatsappChatParser
   module Platforms
     module Android
+      # Regex patterns and builders for Android WhatsApp exports.
       module Pattern
         # rubocop:disable Layout/HashAlignment
         PATTERNS = {
@@ -18,6 +19,8 @@ module WhatsappChatParser
         # rubocop:enable Layout/HashAlignment
 
         class << self
+          # Returns the compiled regex for Android chat exports.
+          # @return [Regexp]
           def regex
             Regexp.new(
               "#{date_pattern}, #{time_pattern} " \

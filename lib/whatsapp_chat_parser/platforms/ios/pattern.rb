@@ -3,6 +3,7 @@
 module WhatsappChatParser
   module Platforms
     module Ios
+      # Regex patterns and builders for iOS WhatsApp exports.
       module Pattern
         # rubocop:disable Layout/HashAlignment
         PATTERNS = {
@@ -19,6 +20,8 @@ module WhatsappChatParser
         # rubocop:enable Layout/HashAlignment
 
         class << self
+          # Returns the compiled regex for iOS chat exports.
+          # @return [Regexp]
           def regex
             Regexp.new(
               "#{square_bracket_open_pattern}" \

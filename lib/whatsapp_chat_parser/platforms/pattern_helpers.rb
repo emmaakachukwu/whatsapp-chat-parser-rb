@@ -2,6 +2,7 @@
 
 module WhatsappChatParser
   module Platforms
+    # Shared utilities for building regex patterns.
     module PatternHelpers
       class << self
         def join_sources(patterns, keys, separator)

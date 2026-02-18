@@ -1,6 +1,6 @@
 # WhatsApp Chat Parser
 
-A Ruby library that parses exported WhatsApp chat `.txt` files and converts them into structured, machine-readable data. Designed for downstream processing such as analytics, ETL pipelines, storage, and transformation — not for rendering UI or interacting with the WhatsApp API.
+A Ruby library that parses exported WhatsApp chat `.txt` files and converts them into structured, machine-readable data. Designed for downstream processing such as analytics, ETL pipelines, storage, and transformation - not for rendering UI or interacting with the WhatsApp API.
 
 ## Features
 
@@ -51,7 +51,7 @@ messages.each { |msg| puts "#{msg.timestamp} | #{msg.author}: #{msg.body}" }
 
 ```ruby
 File.open('path/to/chat.txt') do |f|
-  hatsappChatParser.parse_file(f).each { |msg| puts "#{msg.timestamp} | #{msg.author}: #{msg.body}" }
+  WhatsappChatParser.parse_file(f).each { |msg| puts "#{msg.timestamp} | #{msg.author}: #{msg.body}" }
 end
 ```
 
@@ -71,10 +71,10 @@ Each parsed record includes:
 
 ## Design principles
 
-- **Deterministic parsing** — Same input yields same output
-- **No dependencies** — Self-contained Ruby
-- **Explicit platform handling** — Android vs iOS format differences are handled explicitly
-- **Predictable structure** — Stable, documented output schema
+- **Deterministic parsing** - Same input yields same output
+- **No dependencies** - Self-contained Ruby
+- **Explicit platform handling** - Android vs iOS format differences are handled explicitly
+- **Predictable structure** - Stable, documented output schema
 
 ## Use cases
 
