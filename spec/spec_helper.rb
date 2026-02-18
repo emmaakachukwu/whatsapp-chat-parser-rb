@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'whatsapp_chat_parser'
+require 'whatsapp-chat-parser'
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate

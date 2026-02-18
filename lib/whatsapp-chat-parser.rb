@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_relative 'whatsapp_chat_parser/platforms'
-require_relative 'whatsapp_chat_parser/models/message'
-require_relative 'whatsapp_chat_parser/file_processor'
+require_relative 'whatsapp-chat-parser/platforms'
+require_relative 'whatsapp-chat-parser/models/message'
+require_relative 'whatsapp-chat-parser/file_processor'
 
 # Main entry point for the WhatsApp Chat Parser library.
 module WhatsappChatParser

@@ -15,7 +15,7 @@ A Ruby library that parses exported WhatsApp chat `.txt` files and converts them
 Add to your Gemfile:
 
 ```ruby
-gem 'whatsapp_chat_parser'
+gem 'whatsapp-chat-parser'
 ```
 
 Then run:
@@ -27,7 +27,7 @@ bundle install
 Or install directly:
 
 ```bash
-gem install whatsapp_chat_parser
+gem install whatsapp-chat-parser
 ```
 
 ## Usage
@@ -35,7 +35,7 @@ gem install whatsapp_chat_parser
 **Parse a single message string** (returns a `Message` or `nil` if malformed):
 
 ```ruby
-require 'whatsapp_chat_parser'
+require 'whatsapp-chat-parser'
 
 line = '12/15/25, 10:30:00 AM - John Doe: Hello World'
 msg = WhatsappChatParser.parse_line(line)

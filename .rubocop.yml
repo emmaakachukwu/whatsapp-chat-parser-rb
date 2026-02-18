@@ -19,4 +19,13 @@ Gemspec/DevelopmentDependencies:
 
 Layout/HashAlignment:
   Exclude:
-    - whatsapp_chat_parser.gemspec
+    - whatsapp-chat-parser.gemspec
+
+Naming/FileName:
+  Exclude:
+    - lib/whatsapp-chat-parser.rb
+    - spec/whatsapp-chat-parser_spec.rb
+
+RSpec/SpecFilePathFormat:
+  Exclude:
+    - spec/whatsapp-chat-parser_spec.rb

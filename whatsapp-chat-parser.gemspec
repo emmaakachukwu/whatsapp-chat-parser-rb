@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require_relative 'lib/whatsapp_chat_parser/version'
+require_relative 'lib/whatsapp-chat-parser/version'
 
 Gem::Specification.new do |spec|
-  spec.name = 'whatsapp_chat_parser'
+  spec.name = 'whatsapp-chat-parser'
   spec.summary = 'A Ruby library for parsing exported WhatsApp chat .txt files or message strings.'
   spec.version = WhatsappChatParser::VERSION
   spec.homepage = 'https://github.com/emmaakachukwu/whatsapp-chat-parser-rb'
@@ -26,7 +26,7 @@ Gem::Specification.new do |spec|
     'homepage_uri'          => 'https://github.com/emmaakachukwu/whatsapp-chat-parser-rb',
     'bug_tracker_uri'       => 'https://github.com/emmaakachukwu/whatsapp-chat-parser-rb/issues',
     'changelog_uri'         => "https://github.com/emmaakachukwu/whatsapp-chat-parser-rb/blob/v#{spec.version}/Changelog.md",
-    'documentation_uri'     => "https://www.rubydoc.info/gems/whatsapp_chat_parser/#{spec.version}",
+    'documentation_uri'     => "https://www.rubydoc.info/gems/whatsapp-chat-parser/#{spec.version}",
     'source_code_uri'       => "https://github.com/emmaakachukwu/whatsapp-chat-parser-rb/tree/v#{spec.version}",
     'keywords'              => 'whatsapp chat parser whatsapp-chat-parser text export android ios',
     'rubygems_mfa_required' => 'true'
