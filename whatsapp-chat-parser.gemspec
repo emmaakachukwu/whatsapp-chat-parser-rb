@@ -19,13 +19,13 @@ Gem::Specification.new do |spec|
   spec.email = ['emmanuelakachukwu1@gmail.com']
 
   spec.required_ruby_version = '>= 3.0.0'
-  spec.files = Dir.glob('lib/**/*.rb') + %w[LICENSE README.md]
+  spec.files = Dir.glob('lib/**/*.rb') + %w[LICENSE README.md CHANGELOG.md]
   spec.require_paths = ['lib']
 
   spec.metadata = {
     'homepage_uri'          => 'https://github.com/emmaakachukwu/whatsapp-chat-parser-rb',
     'bug_tracker_uri'       => 'https://github.com/emmaakachukwu/whatsapp-chat-parser-rb/issues',
-    'changelog_uri'         => "https://github.com/emmaakachukwu/whatsapp-chat-parser-rb/blob/v#{spec.version}/Changelog.md",
+    'changelog_uri'         => "https://github.com/emmaakachukwu/whatsapp-chat-parser-rb/blob/v#{spec.version}/CHANGELOG.md",
     'documentation_uri'     => "https://www.rubydoc.info/gems/whatsapp-chat-parser/#{spec.version}",
     'source_code_uri'       => "https://github.com/emmaakachukwu/whatsapp-chat-parser-rb/tree/v#{spec.version}",
     'keywords'              => 'whatsapp chat parser whatsapp-chat-parser text export android ios',
