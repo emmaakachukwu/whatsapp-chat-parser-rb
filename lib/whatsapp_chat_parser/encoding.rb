@@ -10,7 +10,7 @@ module WhatsappChatParser
     class << self
       def normalize_to_utf8(line)
         enc = encoding_for(line)
-        str = line.to_s.dup.force_encoding(enc)
+        str = line.dup.force_encoding(enc)
         str = strip_bom(str, enc)
         unless enc == ::Encoding::UTF_8
           str = str.encode(
@@ -24,7 +24,7 @@ module WhatsappChatParser
       private
 
       def encoding_for(line)
-        raw = line.to_s.dup.force_encoding(::Encoding::BINARY)
+        raw = line.dup.force_encoding(::Encoding::BINARY)
         if raw.start_with?(UTF8_BOM)
           ::Encoding::UTF_8
         elsif raw.start_with?(UTF16LE_BOM)
