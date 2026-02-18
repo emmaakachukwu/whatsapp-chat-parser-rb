@@ -23,5 +23,23 @@ RSpec.describe WhatsappChatParser::Platforms::Ios do
       expect(message.author).to be_nil
       expect(message.body).to eq('Messages and calls are end-to-end encrypted.')
     end
+
+    it 'parses a line at 12:00 AM' do
+      line = '[15/12/2025, 12:30:00 AM] John Doe: Hello World'
+      message = described_class.parse(line)
+      expect(message.timestamp).to eq('2025-12-15 00:30:00')
+    end
+
+    it 'parses a line at 12:00 PM' do
+      line = '[15/12/2025, 12:30:00 PM] John Doe: Hello World'
+      message = described_class.parse(line)
+      expect(message.timestamp).to eq('2025-12-15 12:30:00')
+    end
+
+    it 'parses a line with PM' do
+      line = '[15/12/2025, 10:30:00 PM] John Doe: Hello World'
+      message = described_class.parse(line)
+      expect(message.timestamp).to eq('2025-12-15 22:30:00')
+    end
   end
 end
