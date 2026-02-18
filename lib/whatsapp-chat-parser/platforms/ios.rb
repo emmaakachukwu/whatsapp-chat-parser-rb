@@ -51,10 +51,11 @@ module WhatsappChatParser
         def extract_time_components(match)
           hour = extract(match, :hour).to_i
           minute = extract(match, :minute).to_i
+          second = extract(match, :second)
           meridiem = extract(match, :meridiem)
           hour = convert_to_24_hour(hour, meridiem)
 
-          { hour: hour, minute: minute }
+          { hour: hour, minute: minute, second: second }
         end
 
         def convert_to_24_hour(hour, meridiem)
@@ -70,12 +71,13 @@ module WhatsappChatParser
         def format_sql_timestamp(date, time)
           # rubocop:disable Layout/HashAlignment
           format(
-            '%<year>04d-%<month>02d-%<day>02d %<hour>02d:%<minute>02d:00',
+            '%<year>04d-%<month>02d-%<day>02d %<hour>02d:%<minute>02d:%<second>02d',
             year:   date[:year],
             month:  date[:month],
             day:    date[:day],
             hour:   time[:hour],
-            minute: time[:minute]
+            minute: time[:minute],
+            second: time[:second]
           )
           # rubocop:enable Layout/HashAlignment
         end

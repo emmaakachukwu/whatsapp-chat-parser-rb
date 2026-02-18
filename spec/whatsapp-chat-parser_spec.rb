@@ -48,6 +48,7 @@ RSpec.describe WhatsappChatParser do
       expect(messages[0].platform).to eq(:android)
       expect(messages[2].author).to eq('Alice')
       expect(messages[2].platform).to eq(:ios)
+      expect(messages[2].timestamp).to eq('2025-12-15 10:32:03')
       expect(messages[4].author).to eq('Charlie')
       expect(messages[4].platform).to eq(:ios)
       expect(messages[6].author).to be_nil
