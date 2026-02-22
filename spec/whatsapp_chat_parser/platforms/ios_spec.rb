@@ -41,5 +41,11 @@ RSpec.describe WhatsappChatParser::Platforms::Ios do
       message = described_class.parse(line)
       expect(message.timestamp).to eq('2025-12-15 22:30:00')
     end
+
+    it 'parses the seconds correctly' do
+      line = '[15/12/2025, 10:30:05 PM] John Doe: Hello World'
+      message = described_class.parse(line)
+      expect(message.timestamp).to eq('2025-12-15 22:30:05')
+    end
   end
 end
