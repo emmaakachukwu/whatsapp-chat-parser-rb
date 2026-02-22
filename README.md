@@ -1,5 +1,8 @@
 # WhatsApp Chat Parser
 
+[![Gem Version](https://badge.fury.io/rb/whatsapp-chat-parser.svg?icon=si%3Arubygems)](https://badge.fury.io/rb/whatsapp-chat-parser)
+[![CI](https://github.com/emmaakachukwu/whatsapp-chat-parser-rb/actions/workflows/ci.yml/badge.svg)](https://github.com/emmaakachukwu/whatsapp-chat-parser-rb/actions/workflows/ci.yml)
+
 A Ruby library that parses exported WhatsApp chat `.txt` files and converts them into structured, machine-readable data. Designed for downstream processing such as analytics, ETL pipelines, storage, and transformation - not for rendering UI or interacting with the WhatsApp API.
 
 ## Features
