@@ -22,7 +22,7 @@ module WhatsappChatParser
           )
         end
 
-        str
+        str.scrub(' ').squeeze(' ')
       end
 
       private
