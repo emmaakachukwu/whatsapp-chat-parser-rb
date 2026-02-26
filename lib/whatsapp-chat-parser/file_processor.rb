@@ -30,7 +30,7 @@ module WhatsappChatParser
       end
 
       def accumulate_messages(io, &block)
-        message = ''
+        message = +''
 
         io.each_line do |line|
           if message_starts_here?(line)
